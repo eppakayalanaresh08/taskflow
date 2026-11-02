@@ -33,35 +33,49 @@
 ## 📱 App Preview & Screenshots
 
 <div align="center">
-  <!-- Top Hero Banner / Showcase Preview -->
-  <a href="assets/screenshots/banner.png">
-    <img src="assets/screenshots/banner.png" alt="TaskFlow Application Showcase" width="100%" style="max-width: 860px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);" onerror="this.onerror=null; this.src='https://via.placeholder.com/860x420/1E293B/FFFFFF?text=TaskFlow+Mobile+App+Showcase';" />
-  </a>
-  <p><em>TaskFlow — Modern Task Dashboard, Detail View & Smart AI Assistant</em></p>
-</div>
-
-<br />
-
-<div align="center">
   <table>
-    <tr>
-      <td align="center" width="33%">
-        <img src="assets/screenshots/task-list.png" alt="Task Listing Screen" width="260" style="border-radius: 8px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/260x520/EEF4FA/334155?text=Task+Listing+Screen';" /><br />
-        <sub><b>Task Listing & Category Filters</b></sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="assets/screenshots/task-detail.png" alt="Task Detail Screen" width="260" style="border-radius: 8px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/260x520/EEF4FA/334155?text=Task+Detail+Screen';" /><br />
-        <sub><b>Task Editor & Subtasks</b></sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="assets/screenshots/ai-assistant.png" alt="AI Assistant Modal" width="260" style="border-radius: 8px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/260x520/EEF4FA/334155?text=AI+Task+Breakdown';" /><br />
-        <sub><b>AI Task Breakdown Assistant</b></sub>
-      </td>
-    </tr>
+    <thead>
+      <tr>
+        <th align="center" width="25%">1. Today's Tasks (Home)</th>
+        <th align="center" width="25%">2. All Tasks (Create)</th>
+        <th align="center" width="25%">3. Task Details</th>
+        <th align="center" width="25%">4. AI Assistant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center" valign="top">
+          <a href="assets/screenshots/image1.jpeg">
+            <img src="assets/screenshots/image1.jpeg" alt="Today's Tasks - Home Screen" width="210" style="border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.12);" />
+          </a>
+          <br /><br />
+          <sub><b>Today's Tasks (Home)</b><br />Daily overview, priority flow & quick actions</sub>
+        </td>
+        <td align="center" valign="top">
+          <a href="assets/screenshots/image2.jpeg">
+            <img src="assets/screenshots/image2.jpeg" alt="All Tasks & Task Creation" width="210" style="border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.12);" />
+          </a>
+          <br /><br />
+          <sub><b>All Tasks (Create)</b><br />Categorized list, search, status filters & creation FAB</sub>
+        </td>
+        <td align="center" valign="top">
+          <a href="assets/screenshots/image3.jpeg">
+            <img src="assets/screenshots/image3.jpeg" alt="Task Details Page" width="210" style="border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.12);" />
+          </a>
+          <br /><br />
+          <sub><b>Task Details Page</b><br />Subtask checklist, native datetime pickers & notes</sub>
+        </td>
+        <td align="center" valign="top">
+          <a href="assets/screenshots/image4.jpeg">
+            <img src="assets/screenshots/image4.jpeg" alt="AI Assistant Screen" width="210" style="border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.12);" />
+          </a>
+          <br /><br />
+          <sub><b>AI Assistant</b><br />Natural language task breakdown & suggestions</sub>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
-
-> 💡 **Image Upload Guide**: To display your own screenshots, save your images in [`assets/screenshots/`](assets/screenshots/) as `banner.png`, `task-list.png`, `task-detail.png`, and `ai-assistant.png`.
 
 ---
 
