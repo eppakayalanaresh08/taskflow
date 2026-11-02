@@ -1,0 +1,148 @@
+import { Task, TaskCategory, TaskPriority } from '../types/task';
+
+// Initial preloaded tasks matching the design clean state
+export const initialDesignTasks: Task[] = [
+  {
+    id: 101,
+    title: 'Review Q2 marketing plan',
+    completed: false,
+    category: 'Work',
+    priority: 'High',
+    description: '',
+    estimatedTime: '15m',
+    dueDateFrom: '2025/09/02',
+    dueTimeFrom: '09:24 AM',
+    dueDateTo: '2025/09/02',
+    dueTimeTo: '07:34 PM',
+    section: 'TODAY',
+    subtasks: [],
+    attachments: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 102,
+    title: 'Buy groceries for the week',
+    completed: false,
+    category: 'Personal',
+    priority: 'Medium',
+    description: '',
+    estimatedTime: '30m',
+    dueDateFrom: '2025/09/02',
+    dueTimeFrom: '05:00 PM',
+    dueDateTo: '2025/09/02',
+    dueTimeTo: '06:00 PM',
+    section: 'TODAY',
+    subtasks: [],
+    attachments: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 103,
+    title: 'Finish blog post draft',
+    completed: false,
+    category: 'Work',
+    priority: 'High',
+    description: '',
+    estimatedTime: '45m',
+    dueDateFrom: '2025/09/02',
+    dueTimeFrom: '02:00 PM',
+    dueDateTo: '2025/09/02',
+    dueTimeTo: '04:00 PM',
+    section: 'TODAY',
+    subtasks: [],
+    attachments: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 104,
+    title: 'Code review for PR #42',
+    completed: false,
+    category: 'Work',
+    priority: 'High',
+    description: '',
+    estimatedTime: '30m',
+    dueDateFrom: '2025/09/02',
+    dueTimeFrom: '11:00 AM',
+    dueDateTo: '2025/09/02',
+    dueTimeTo: '12:00 PM',
+    section: 'TODAY',
+    subtasks: [],
+    attachments: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 105,
+    title: 'Task without time',
+    completed: false,
+    category: 'Personal',
+    priority: 'Medium',
+    description: '',
+    estimatedTime: '30m',
+    dueDateFrom: '2025/09/03',
+    dueTimeFrom: '10:00 AM',
+    dueDateTo: '2025/09/03',
+    dueTimeTo: '10:30 AM',
+    section: 'TOMORROW',
+    subtasks: [],
+    attachments: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 106,
+    title: 'Test task at 2:30 today',
+    completed: false,
+    category: 'Personal',
+    priority: 'Low',
+    description: '',
+    estimatedTime: '15m',
+    dueDateFrom: '2025/09/03',
+    dueTimeFrom: '02:30 PM',
+    dueDateTo: '2025/09/03',
+    dueTimeTo: '03:00 PM',
+    section: 'TOMORROW',
+    subtasks: [],
+    attachments: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+];
+
+const CATEGORIES: TaskCategory[] = ['Work', 'Personal', 'Work', 'Personal', 'Study', 'Health'];
+const PRIORITIES: TaskPriority[] = ['High', 'Medium', 'High', 'Medium', 'Low'];
+const TIMES = ['15m', '30m', '45m', '20m', '1h'];
+
+export function enrichDummyJsonTodo(
+  todoItem: { id: number; todo: string; completed: boolean; userId: number },
+  index: number
+): Task {
+  const category = CATEGORIES[index % CATEGORIES.length];
+  const priority = PRIORITIES[index % PRIORITIES.length];
+  const estimatedTime = TIMES[index % TIMES.length];
+  const section = index < 4 ? 'TODAY' : index < 8 ? 'TOMORROW' : 'UPCOMING';
+
+  return {
+    id: todoItem.id,
+    title: todoItem.todo,
+    completed: todoItem.completed,
+    userId: todoItem.userId,
+    category,
+    priority,
+    estimatedTime,
+    section,
+    description: '',
+    subtasks: [], // Clean real state - no dummy subtasks
+    attachments: [],
+    dueDateFrom: '2025/09/02',
+    dueTimeFrom: '09:00 AM',
+    dueDateTo: '2025/09/02',
+    dueTimeTo: '06:00 PM',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    isLocal: false,
+  };
+}

@@ -1,45 +1,56 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import React, { useEffect } from 'react';
+import {
+  StatusBar,
+  StyleSheet,
+  View,
+} from 'react-native';
 import {
   SafeAreaProvider,
-  useSafeAreaInsets,
+  SafeAreaView,
 } from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
+import { store } from './src/store';
+import { AppNavigator } from './src/navigation/AppNavigator';
+import { useTaskStore } from './src/store/taskStore';
+import { useNetworkStatus } from './src/hooks/useNetworkStatus';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+function MainApp() {
+  const initStore = useTaskStore(state => state.initStore);
+
+  // Initialize network status listener
+  useNetworkStatus();
+
+  // Initialize store: hydrate cache, then fetch fresh tasks
+  useEffect(() => {
+    initStore();
+  }, [initStore]);
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+      <StatusBar barStyle="dark-content" />
+      <View style={styles.container}>
+        <AppNavigator />
+      </View>
+    </SafeAreaView>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
+export default function App() {
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <MainApp />
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#EEF4FA',
+  },
   container: {
     flex: 1,
   },
 });
-
-export default App;
